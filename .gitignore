@@ -4,6 +4,7 @@ out/
 out/coverage/*
 cmake-build-*/
 conan-cache/
+test_cpp_lab/build/
 
 # User spesific settings
 CMakeUserPresets.json

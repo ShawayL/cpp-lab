@@ -9,8 +9,10 @@ add_library(cpp_lab::sample_library ALIAS sample_library)
 
 target_link_libraries(sample_library PRIVATE cpp_lab_options cpp_lab_warnings)
 
-target_include_directories(sample_library ${WARNING_GUARD} PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-                                                                  $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>)
+target_include_directories(sample_library ${WARNING_GUARD} PUBLIC 
+                                                                  $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+                                                                  $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
+                                                                  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 target_compile_features(sample_library PUBLIC cxx_std_20)
 
@@ -18,7 +20,8 @@ set_target_properties(
   sample_library
   PROPERTIES VERSION ${PROJECT_VERSION}
              CXX_VISIBILITY_PRESET hidden
-             VISIBILITY_INLINES_HIDDEN YES)
+             VISIBILITY_INLINES_HIDDEN YES
+             PUBLIC_HEADER "${PROJECT_SOURCE_DIR}/include/cpp_lab/sample_library.hpp;${PROJECT_BINARY_DIR}/include/cpp_lab/sample_library_export.hpp")
 
 generate_export_header(sample_library EXPORT_FILE_NAME ${PROJECT_BINARY_DIR}/include/cpp_lab/sample_library_export.hpp)
 
