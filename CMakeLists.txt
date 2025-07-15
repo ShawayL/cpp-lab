@@ -106,7 +106,7 @@ cpp_lab_package_project(
   TARGETS
   intro
   sample_library
-  find_submatrix
+  #find_submatrix
   cpp_lab_options
   cpp_lab_warnings
   # FIXME: this does not work! CK
