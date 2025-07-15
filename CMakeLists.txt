@@ -100,15 +100,21 @@ endif()
 
 include(cmake/PackageProject.cmake)
 
+set(cpp_lab_package_project_targets
+  intro
+  sample_library
+  cpp_lab_options
+  cpp_lab_warnings
+)
+if(cpp_lab_BUILD_FIND_SUBMATRIX)
+  list(APPEND cpp_lab_package_project_targets find_submatrix)
+endif()
+
 # Add other targets that you want installed here, by default we just package the one executable
 # we know we want to ship
 cpp_lab_package_project(
   TARGETS
-  intro
-  sample_library
-  #find_submatrix
-  cpp_lab_options
-  cpp_lab_warnings
+  ${cpp_lab_package_project_targets}
   # FIXME: this does not work! CK
   # PRIVATE_DEPENDENCIES_CONFIGURED project_options project_warnings
 )

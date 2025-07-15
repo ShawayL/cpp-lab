@@ -123,6 +123,8 @@ macro(cpp_lab_setup_options)
 
   option(cpp_lab_BUILD_FUZZ_TESTS "Enable fuzz testing executable" ${DEFAULT_FUZZER})
 
+  option(cpp_lab_BUILD_FIND_SUBMATRIX "Enable build find_submatrix" OFF)
+
 endmacro()
 
 macro(cpp_lab_global_options)
